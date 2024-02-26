@@ -1,0 +1,50 @@
+name: infotainment
+description: "A new Flutter project."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.2.2 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_hooks: ^0.20.5
+  flutter_riverpod: ^2.4.10
+  hooks_riverpod: ^2.4.10
+  web_socket_channel: ^2.4.3
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+    - assets/images/
+    - assets/icons/
+
+  fonts:
+    - family: Genos
+      fonts:
+        - asset: assets/fonts/Genos/Genos-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Genos/Genos-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Genos/Genos-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Genos/Genos-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Genos/Genos-Regular.ttf
+        - asset: assets/fonts/Genos/Genos-Light.ttf
+          weight: 300
+    - family: Corporate
+      fonts:
+        - asset: assets/fonts/Corporate/Corporate-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Corporate/Corporate-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Corporate/Corporate-Regular.ttf

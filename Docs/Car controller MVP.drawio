@@ -1,0 +1,134 @@
+<mxfile host="app.diagrams.net" modified="2024-02-09T08:41:30.610Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="qIgZV1ZIT0TaC3W_7mSb" version="21.8.2" type="device">
+  <diagram name="Page-1" id="FfOYeTEdOJJyps_bjXvP">
+    <mxGraphModel dx="1301" dy="797" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry y="5" width="220" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-2" value="Car mock" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="18" y="5" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-3" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/fruit-136/64/Fruit_iconfree_Filled_Outline_raspberry-healthy-organic-food-fruit_icon-128.png" vertex="1" parent="1">
+          <mxGeometry y="11" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tVhfGZEXtC0GMt8jrEwE-4" target="tVhfGZEXtC0GMt8jrEwE-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-4" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="55" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-5" value="&lt;h1&gt;Backend&lt;/h1&gt;&lt;p style=&quot;text-align: justify;&quot;&gt;It listens for commands from OBD port. It can either send response or execute the command.(observer pattern)&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="38" y="65" width="162" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-6" value="OBD" style="html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="181" y="70" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-7" value="" style="endArrow=none;html=1;rounded=0;align=center;verticalAlign=top;endFill=0;labelBackgroundColor=none;endSize=2;" edge="1" source="tVhfGZEXtC0GMt8jrEwE-6" target="tVhfGZEXtC0GMt8jrEwE-8" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-8" value="" style="shape=requiredInterface;html=1;fontSize=11;align=center;fillColor=none;points=[];aspect=fixed;resizable=0;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=top;flipH=1;" vertex="1" parent="1">
+          <mxGeometry x="236" y="80" width="5" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-9" value="OBD" style="html=1;rounded=0;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="70" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-12" value="" style="endArrow=none;html=1;rounded=0;align=center;verticalAlign=top;endFill=0;labelBackgroundColor=none;endSize=2;" edge="1" parent="1" source="tVhfGZEXtC0GMt8jrEwE-9" target="tVhfGZEXtC0GMt8jrEwE-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="85" as="sourcePoint" />
+            <mxPoint x="260" y="85" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-11" value="" style="ellipse;html=1;fontSize=11;align=center;fillColor=none;points=[];aspect=fixed;resizable=0;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=top;flipH=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="81" width="8" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-13" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.bluetooth;pointerEvents=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="73" width="12.5" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-14" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.arc;startAngle=0.3;endAngle=0.5960070129135606;rotation=-75;fillColor=#dae8fc;strokeColor=#3399FF;" vertex="1" parent="1">
+          <mxGeometry x="320" y="73" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-15" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.arc;startAngle=0.3;endAngle=0.5960070129135606;rotation=-75;fillColor=#dae8fc;strokeColor=#3399FF;" vertex="1" parent="1">
+          <mxGeometry x="320" y="67.41999999999996" width="41.16" height="41.16" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-16" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.arc;startAngle=0.3;endAngle=0.5960070129135606;rotation=-75;fillColor=#dae8fc;strokeColor=#3399FF;" vertex="1" parent="1">
+          <mxGeometry x="320" y="61.17000000000007" width="53.66" height="53.66" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-17" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1" width="190" height="154" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-19" value="Infotainment" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="195" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-21" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/fruit-136/64/Fruit_iconfree_Filled_Outline_raspberry-healthy-organic-food-fruit_icon-128.png" vertex="1" parent="1">
+          <mxGeometry x="400" y="5" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-22" value="External module" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="418" y="1" width="92" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-23" value="Backend with connection to REST API" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="435" y="58" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-24" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" width="202.5" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-25" value="" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/storage/Datacenter_Server_Rack_EoR.svg;" vertex="1" parent="1">
+          <mxGeometry x="737.4" y="23" width="47.7" height="96.4" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-26" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.mobile_client;fillColor=#D2D3D3;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="742" y="192" width="40.5" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.07;exitY=0.4;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.01;entryY=0.348;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="tVhfGZEXtC0GMt8jrEwE-24" target="tVhfGZEXtC0GMt8jrEwE-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.55;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="tVhfGZEXtC0GMt8jrEwE-26" target="tVhfGZEXtC0GMt8jrEwE-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-29" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry y="573.3299999999999" width="590" height="376.67" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-30" value="" style="shape=mxgraph.signs.transportation.car_4;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="182.33" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tVhfGZEXtC0GMt8jrEwE-32" target="tVhfGZEXtC0GMt8jrEwE-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-32" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/fruit-136/64/Fruit_iconfree_Filled_Outline_raspberry-healthy-organic-food-fruit_icon-128.png" vertex="1" parent="1">
+          <mxGeometry x="257.15999999999997" y="573.3299999999999" width="68" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-33" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="tVhfGZEXtC0GMt8jrEwE-32">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="560" as="sourcePoint" />
+            <mxPoint x="291.1700000000001" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-34" value="OBD protocol / CAN bus" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="tVhfGZEXtC0GMt8jrEwE-33">
+          <mxGeometry x="-0.0517" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-35" value="Raspberry PI" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry y="573.3299999999999" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tVhfGZEXtC0GMt8jrEwE-38" target="tVhfGZEXtC0GMt8jrEwE-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-37" value="Websocket" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="tVhfGZEXtC0GMt8jrEwE-36">
+          <mxGeometry x="-0.2381" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-38" value="Python backend (Django)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="181.74" y="670" width="218.84" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-39" value="Flutter infotainment app" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="231.16" y="870" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tVhfGZEXtC0GMt8jrEwE-40" value="Python OBD library" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="670" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
