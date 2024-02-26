@@ -9,41 +9,6 @@ class IndicatorSwitch extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedIndicator = useState<IndicatorEnum?>(null);
-    final indicatorButtonSegments =
-        useMemoized<List<ButtonSegment<IndicatorEnum>>>(
-      () => IndicatorEnum.values
-          .map(
-            (e) => ButtonSegment(
-              value: e,
-              icon: Image.asset(
-                e.icon,
-                height: 40,
-                width: 40,
-              ),
-            ),
-          )
-          .toList(),
-      [],
-    );
-    return SegmentedButton<IndicatorEnum?>(
-      segments: indicatorButtonSegments,
-      emptySelectionAllowed: true,
-      multiSelectionEnabled: false,
-      onSelectionChanged: (selection) {
-        selectedIndicator.value = selection.first;
-      },
-      style: ButtonStyle(
-        backgroundColor: MaterialStateColor.resolveWith(
-          (states) {
-            if (states.firstOrNull == MaterialState.selected) {
-              return Colors.redAccent;
-            } else {
-              return Colors.black12;
-            }
-          },
-        ),
-      ),
-      selected: const {null},
-    );
+    return Container();
   }
 }
