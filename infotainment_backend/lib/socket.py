@@ -27,13 +27,17 @@ class SocketServer(Thread):
         self.start()
 
     def send(self, data: str):
-        if not self._client:
-            raise Exception(f"SocketServer: Server hasn't yet established connection with client!")
-        self._client.send(data.encode())
-        logging.info(f"SocketServer: Data sent: {data}")
+        if self.is_connected():
+            self._client.send(data.encode())
+            logging.info(f"SocketServer: Data sent: {data}")
+        else:
+            logging.warning("SocketServer: Server hasn't yet established a connection with the client!")
 
     def get_port(self):
         return self._socket.getsockname()[1]
+
+    def is_connected(self) -> bool:
+        return self._client is not None
 
     def run(self):
         self._socket.listen(5)

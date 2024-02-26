@@ -32,7 +32,7 @@ db_client = ConnectionHandler(
 
 # get free random port
 infotainment_server = SocketServer(ip='127.0.0.1', port=0)
-infotainment_client = SocketClient(ip='127.0.0.1', port=infotainment_server.get_port())
+# infotainment_client = SocketClient(ip='127.0.0.1', port=infotainment_server.get_port())
 
 # everytime backend restarts, create new vehicle id
 vehicle_id: str = vehicle_id_generator()
