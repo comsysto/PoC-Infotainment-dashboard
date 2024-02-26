@@ -1,11 +1,11 @@
 # certs and keys
-CERTIFICATE = "certs/certificate.pem.crt"
-PRIVATE_KEY = "certs/private.pem.key"
-AMAZON_ROOT_CA_1 = "certs/AmazonRootCA1.pem"
+CERTIFICATE = "infotainment_backend/certs/certificate.pem.crt"
+PRIVATE_KEY = "infotainment_backend/certs/private.pem.key"
+AMAZON_ROOT_CA_1 = "infotainment_backend/certs/AmazonRootCA1.pem"
 
 # connection strings
 ENDPOINT = "a30vb2xablwvcd-ats.iot.eu-central-1.amazonaws.com"
-CLIENT_ID = "iotconsole-b0f61b6d-2a44-4ccd-af13-b419642efc31"
+CLIENT_ID = "iotconsole-b1ced9a9-df0b-4ef8-b3bf-fe7cb0af9cc0"
 
 # topics
 # - publish

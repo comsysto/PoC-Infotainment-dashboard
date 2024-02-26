@@ -7,7 +7,7 @@ from random import choice
 from datetime import datetime
 from string import ascii_lowercase
 
-from car_mock.config import VEHICLE_ID_LEN, VEHICLE_WHEEL_RADIUS
+from infotainment_backend.config import VEHICLE_ID_LEN, VEHICLE_WHEEL_RADIUS
 
 
 class DecimalEncoder(json.JSONEncoder):

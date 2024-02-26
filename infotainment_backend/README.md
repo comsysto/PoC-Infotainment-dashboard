@@ -35,6 +35,6 @@ When using external `SocketServer` comment out that line in `car.py` file.
     # only console
     logging_config(folder=None)
 
-Run program:
+Run program (this time from project `root`):
 
-    python car.py
+    python -m infotainment_backend.car

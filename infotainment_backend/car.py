@@ -4,12 +4,12 @@ import logging
 from sys import exit
 from awscrt import mqtt
 
-from car_mock.lib.database import ConnectionHandler
-from car_mock.lib.enum import Velocity
-from car_mock.lib.mqtt import MqttClient
-from car_mock.lib.socket import SocketClient, SocketServer
-from car_mock.lib.utils import *
-from car_mock.config import *
+from infotainment_backend.lib.database import ConnectionHandler
+from infotainment_backend.lib.enum import Velocity
+from infotainment_backend.lib.mqtt import MqttClient
+from infotainment_backend.lib.socket import SocketClient, SocketServer
+from infotainment_backend.lib.utils import *
+from infotainment_backend.config import *
 
 
 # logging_config(folder=os.path.join('logs'))
