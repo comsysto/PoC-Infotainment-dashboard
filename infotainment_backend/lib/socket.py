@@ -17,6 +17,7 @@ class SocketClient:
 
 class SocketServer(Thread):
     _socket: socket.socket
+    _client: socket.socket = None
 
     def __init__(self, ip: str, port: int):
         Thread.__init__(self)
@@ -26,19 +27,22 @@ class SocketServer(Thread):
         self.start()
 
     def send(self, data: str):
-        self._socket.send(data.encode())
+        if not self._client:
+            raise Exception(f"SocketServer: Server hasn't yet established connection with client!")
+        self._client.send(data.encode())
+        logging.info(f"SocketServer: Data sent: {data}")
 
     def get_port(self):
         return self._socket.getsockname()[1]
 
     def run(self):
         self._socket.listen(5)
-        client, address = self._socket.accept()
+        self._client, address = self._socket.accept()
         try:
             while True:
                 # blocking call, 1024 bytes of data
-                data = client.recv(1024).decode()
+                data = self._client.recv(1024).decode()
                 logging.info(f"SocketServer: Data received from '{address}': {data}")
         except KeyboardInterrupt:
-            client.close()
+            self._client.close()
             self._socket.close()

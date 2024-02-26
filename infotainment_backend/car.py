@@ -72,8 +72,6 @@ def command_received_callback(topic: str, payload: bytes, dup: bool, qos: mqtt.Q
             vehicle['rpm'] = max(vehicle['rpm'], 0)
             vehicle['battery_level'] = max(vehicle['battery_level'], 0)
 
-    logging.info(f'Command: Updated Vehicle: {vehicle}')
-
     # store partial updates only for relevant columns
     _, vehicle = db_client.update_vehicle(vehicle_id=vehicle_id, vehicle=vehicle,
                                           columns=['battery_level', 'rpm', 'velocity'])
@@ -87,7 +85,7 @@ def command_received_callback(topic: str, payload: bytes, dup: bool, qos: mqtt.Q
         blinker_relevant=True,
         blinker=blinker
     )
-    infotainment_client.send(data=socket_state)
+    infotainment_server.send(data=socket_state)
 
 
 def dpf_handler(dpf_state: {}, vehicle: {}):
@@ -134,7 +132,7 @@ async def vehicle_telemetry(telemetry_frequency: float):
             vehicle_fields=['dpf_warning', 'battery_level', 'rpm', 'velocity'],
             blinker_relevant=False
         )
-        infotainment_client.send(data=socket_state)
+        infotainment_server.send(data=socket_state)
 
         # async wait
         await asyncio.sleep(telemetry_frequency)

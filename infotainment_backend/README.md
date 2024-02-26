@@ -25,7 +25,7 @@ Install Python requirements inside virtual environment:
     pip install -r requirements.txt
 
 (Optional) Socket connection `IP` and `port`, default: `127.0.0.1:<free_random_port>`.
-When using external `SocketServer` comment out that line in `car.py` file.
+When using external `SocketClient`, connecting to `SocketServer`, comment out that line with creation of `SocketClient` in `car.py` file.
 
 (Optional) Configure logging to `file` and `console` with:
     

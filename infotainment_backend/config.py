@@ -1,7 +1,7 @@
 # certs and keys
-CERTIFICATE = "infotainment_backend/certs/certificate.pem.crt"
-PRIVATE_KEY = "infotainment_backend/certs/private.pem.key"
-AMAZON_ROOT_CA_1 = "infotainment_backend/certs/AmazonRootCA1.pem"
+CERTIFICATE = "certs/certificate.pem.crt"
+PRIVATE_KEY = "certs/private.pem.key"
+AMAZON_ROOT_CA_1 = "certs/AmazonRootCA1.pem"
 
 # connection strings
 ENDPOINT = "a30vb2xablwvcd-ats.iot.eu-central-1.amazonaws.com"
