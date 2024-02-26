@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:infotainment_mobile_app/features/indicators/presentation/widget/indicator_switch.dart';
+import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/widget/indicator_switch.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
-class HomeScreen extends HookConsumerWidget {
-  const HomeScreen({super.key});
+class BasicControlsScreen extends HookConsumerWidget {
+  const BasicControlsScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

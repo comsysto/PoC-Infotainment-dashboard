@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'di/router_provider.dart';
+import 'core/di/router_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

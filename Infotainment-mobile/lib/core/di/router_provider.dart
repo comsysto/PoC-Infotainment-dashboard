@@ -1,12 +1,10 @@
-//todo: izvuci u neki router provider
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
-import '../presentation/screen/home_screen.dart';
+import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/screen/basic_controls_screen.dart';
 
 enum AppRoutePath {
-  home(name: 'home', path: '/'),
+  basicControls(name: 'basic_controls', path: '/'),
   login(name: 'login', path: '/login'),
   register(name: 'register', path: '/register');
 
@@ -24,13 +22,13 @@ final routerProvider = Provider<GoRouter>(
   (ref) {
     final key = ref.watch(_globalNavigationKeyProvider);
     return GoRouter(
-      initialLocation: AppRoutePath.home.path,
+      initialLocation: AppRoutePath.basicControls.path,
       navigatorKey: key,
       routes: [
         GoRoute(
-          name: AppRoutePath.home.name,
-          path: AppRoutePath.home.path,
-          builder: (context, state) => const HomeScreen(),
+          name: AppRoutePath.basicControls.name,
+          path: AppRoutePath.basicControls.path,
+          builder: (context, state) => const BasicControlsScreen(),
         ),
       ],
     );
