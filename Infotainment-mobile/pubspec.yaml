@@ -18,6 +18,8 @@ dependencies:
   flutter_hooks: ^0.20.1
   go_router: ^13.2.0
   sliver_tools: ^0.2.12
+  flutter_native_splash: ^2.3.11
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -30,6 +32,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/fonts/
+    - assets/images/
+    - assets/icons/
   
   fonts:
     - family: CorporateABQ
