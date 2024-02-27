@@ -4,7 +4,7 @@ from typing import Dict
 import psycopg2
 
 
-class ConnectionHandler:
+class DbConnectionHandler:
     _connection = None
 
     def __init__(self, hostname: str, port: str, username: str, password: str, database: str):
@@ -64,7 +64,7 @@ class ConnectionHandler:
                        "FROM vehicle_state "
                        f"WHERE vehicle_id = '{vehicle_id}' "
                        f"{'FOR UPDATE' if cursor else ''};")
-        return ConnectionHandler._map_vehicle(cursor=cursor, raise_exception=raise_exception)
+        return DbConnectionHandler._map_vehicle(cursor=cursor, raise_exception=raise_exception)
 
     def close(self) -> bool:
         if self._connection is None:

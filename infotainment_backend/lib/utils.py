@@ -21,7 +21,9 @@ def vehicle_id_generator() -> str:
     return ''.join(choice(ascii_lowercase) for _ in range(VEHICLE_ID_LEN))
 
 
-def create_publish_state(vehicle: {}) -> str:
+def create_publish_state(vehicle: {}) -> str | None:
+    if not vehicle:
+        return None
     return json.dumps({
         'telemetry': {
             'dpfWarning': vehicle['dpf_warning'],

@@ -5,7 +5,7 @@ AMAZON_ROOT_CA_1 = "certs/AmazonRootCA1.pem"
 
 # connection strings
 ENDPOINT = "a30vb2xablwvcd-ats.iot.eu-central-1.amazonaws.com"
-CLIENT_ID = "iotconsole-b1ced9a9-df0b-4ef8-b3bf-fe7cb0af9cc0"
+CLIENT_ID = "iotconsole-8f204108-c1c4-46fb-aa17-26e9bf4fcdbf"
 
 # topics
 # - publish
