@@ -29,7 +29,21 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/icons/
+    - assets/fonts/
+  
+  fonts:
+    - family: CorporateABQ
+      fonts:
+        - asset: assets/fonts/Corporate_A_BQ/bold.ttf
+          weight: 700
+        - asset: assets/fonts/Corporate_A_BQ/medium.ttf
+          weight: 500
+        - asset: assets/fonts/Corporate_A_BQ/regular.ttf
+        - asset: assets/fonts/Corporate_A_BQ/light.ttf
+          weight: 300
+    - family: MBCorpoSTitle
+      fonts:
+        - asset: assets/fonts/MB_Corpo_S_Title/regular.otf
 
 flutter_gen:
   output: lib/generated/
