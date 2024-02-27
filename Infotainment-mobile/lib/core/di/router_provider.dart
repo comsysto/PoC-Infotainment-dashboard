@@ -5,8 +5,7 @@ import 'package:infotainment_mobile_app/features/basic_car_controls/presentation
 
 enum AppRoutePath {
   basicControls(name: 'basic_controls', path: '/'),
-  login(name: 'login', path: '/login'),
-  register(name: 'register', path: '/register');
+  chat(name: 'chat', path: '/chat');
 
   const AppRoutePath({required this.name, required this.path});
 

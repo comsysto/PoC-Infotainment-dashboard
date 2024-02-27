@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:infotainment_mobile_app/core/style/theme.dart';
 
 import 'core/di/router_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  FlutterError.demangleStackTrace = (StackTrace stack) {
-    return stack;
-  };
+  FlutterError.demangleStackTrace = (StackTrace stack) => stack;
 
   runApp(const ProviderScope(child: App()));
 }
@@ -20,6 +19,9 @@ class App extends ConsumerWidget {
     final appRouter = ref.watch(routerProvider);
 
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      title: 'Mercedes IoT',
+      theme: AppTheme.lightTheme,
       routerConfig: appRouter,
     );
   }
