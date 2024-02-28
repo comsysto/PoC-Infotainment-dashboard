@@ -5,8 +5,12 @@ class AppTheme {
   const AppTheme._();
 
   static final ThemeData lightTheme = ThemeData(
-    scaffoldBackgroundColor: gradientBeginColorLight,
+    scaffoldBackgroundColor: gradientEndColorLight,
     shadowColor: shadowColorLight,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: gradientEndColorLight,
+      elevation: 0,
+    ),
     extensions: const [
       AppColors(
         gradientBeginColor: gradientBeginColorLight,
@@ -21,6 +25,10 @@ class AppTheme {
   static final ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: gradientBeginColorDark,
     shadowColor: shadowColorDark,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: gradientBeginColorLight,
+      elevation: 0,
+    ),
     extensions: const [
       AppColors(
         gradientBeginColor: gradientBeginColorDark,
