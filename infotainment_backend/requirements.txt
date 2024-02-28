@@ -1,4 +1,6 @@
+aiomqtt==2.0.0
 asyncio==3.4.3
-awscrt==0.20.2
-awsiotsdk==1.21.0
+paho-mqtt==1.6.1
 psycopg2-binary==2.9.9
+typing_extensions==4.10.0
+websockets==12.0
