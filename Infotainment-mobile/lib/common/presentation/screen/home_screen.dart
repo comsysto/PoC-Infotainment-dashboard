@@ -8,8 +8,8 @@ import 'package:infotainment_mobile_app/features/chat/presentation/screen/chat_s
 import 'package:infotainment_mobile_app/features/settings/presentation/screen/settings_screen.dart';
 
 class HomeScreen extends HookConsumerWidget {
-  final _options = [const BasicControlsScreen(), const ChatScreen(), const SettingsScreen()];
-  HomeScreen({super.key});
+  final _options = const [BasicControlsScreen(), ChatScreen(), SettingsScreen()];
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -32,7 +32,7 @@ final routerProvider = Provider<GoRouter>(
         GoRoute(
           name: AppRoutePath.home.name,
           path: AppRoutePath.home.path,
-          builder: (context, state) => HomeScreen(),
+          builder: (context, state) => const HomeScreen(),
           routes: [
             GoRoute(
               name: AppRoutePath.basicControls.name,
