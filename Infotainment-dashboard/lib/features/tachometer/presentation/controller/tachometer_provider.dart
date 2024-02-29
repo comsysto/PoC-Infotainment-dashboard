@@ -5,7 +5,7 @@ import 'package:infotainment/features/tachometer/presentation/model/tachometer_t
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 final _websocketProvider = Provider<WebSocketChannel>((ref) {
-  final uri = Uri.parse('ws://10.0.2.2:8000/ws/chat/');
+  final uri = Uri.parse('ws://10.0.2.2:6365');
   final channel = WebSocketChannel.connect(uri);
   ref.onDispose(() => channel.sink.close());
   return channel;

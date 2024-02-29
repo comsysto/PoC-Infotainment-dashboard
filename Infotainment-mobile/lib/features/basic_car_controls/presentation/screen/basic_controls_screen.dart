@@ -39,7 +39,6 @@ class BasicControlsScreen extends HookConsumerWidget {
           ],
         ),
         centerTitle: false,
-        actions: [],
       ),
       body: CustomScrollView(
         slivers: [
@@ -103,7 +102,7 @@ class BasicControlsScreen extends HookConsumerWidget {
                     type: TelemetryType.rpm,
                   ),
                 ),
-                IndicatorSwitch(),
+                const IndicatorSwitch(),
               ],
             ),
           ),
