@@ -36,6 +36,7 @@ class AppColors extends ThemeExtension<AppColors> {
     final Color? primaryColor,
     final Color? errorColor,
     final Color? shadowColor,
+    final Color? blinkerColor,
   }) =>
       AppColors(
         gradientBeginColor: gradientBeginColor ?? this.gradientBeginColor,
