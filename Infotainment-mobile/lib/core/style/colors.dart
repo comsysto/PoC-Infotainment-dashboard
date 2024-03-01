@@ -56,6 +56,7 @@ class AppColors extends ThemeExtension<AppColors> {
     final Color? personalBubbleColor,
     final Color? mechanicBubbleColor,
     final Color? formAnswerColor,
+    final Color? blinkerColor,
   }) =>
       AppColors(
         gradientBeginColor: gradientBeginColor ?? this.gradientBeginColor,

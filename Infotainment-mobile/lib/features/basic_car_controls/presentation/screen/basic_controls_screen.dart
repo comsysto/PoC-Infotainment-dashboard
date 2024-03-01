@@ -5,7 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:infotainment_mobile_app/core/style/style_extensions.dart';
-import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/widget/indicator_switch.dart';
+import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/widget/blinker_controls.dart';
 import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/widget/telemetry_card.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
@@ -14,14 +14,17 @@ class BasicControlsScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final batteryIcon = useMemoized(() {
-      //todo: value kasnije spojiti kak spada
-      return const Icon(
-        Icons.battery_2_bar,
-        size: 40,
-        color: Colors.red,
-      );
-    }, []);
+    final batteryIcon = useMemoized(
+      () {
+        return const Icon(
+          Icons.battery_2_bar,
+          size: 40,
+          color: Colors.red,
+        );
+      },
+      [],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -32,7 +35,6 @@ class BasicControlsScreen extends HookConsumerWidget {
             ),
             const SizedBox(width: 24),
             Text(
-              //todo: intl
               'E350d 4Matic',
               style: context.textTitle,
             ),
@@ -65,7 +67,6 @@ class BasicControlsScreen extends HookConsumerWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          //todo: value kasnije spojiti kak spada
                           '23%',
                           style: context.textBody,
                         ),
@@ -85,9 +86,7 @@ class BasicControlsScreen extends HookConsumerWidget {
                 const Padding(
                   padding: EdgeInsets.only(top: 16, bottom: 8),
                   child: TelemetryCard(
-                    //todo: intl
                     title: 'Current speed',
-                    //todo: value kasnije spojiti kak spada
                     value: '0',
                     type: TelemetryType.speed,
                   ),
@@ -95,14 +94,12 @@ class BasicControlsScreen extends HookConsumerWidget {
                 const Padding(
                   padding: EdgeInsets.only(bottom: 8),
                   child: TelemetryCard(
-                    //todo: intl
                     title: 'Current RPM',
-                    //todo: value kasnije spojiti kak spada
                     value: '0',
                     type: TelemetryType.rpm,
                   ),
                 ),
-                const IndicatorSwitch(),
+                const BlinkerControls(),
               ],
             ),
           ),
