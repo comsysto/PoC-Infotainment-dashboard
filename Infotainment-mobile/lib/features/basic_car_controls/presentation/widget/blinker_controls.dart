@@ -13,47 +13,71 @@ class BlinkerControls extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final blinkerState = ref.watch(blinkerController);
+    final blinkerState = ref.watch(blinkerControllerProvider);
+
+    final hazardVisibility = useState(false);
 
     final blinkerVisibility = useState({
       BlinkerEnum.left: false,
       BlinkerEnum.right: false,
     });
 
+    final turnOff = useCallback(
+      () {
+        hazardVisibility.value = false;
+        blinkerVisibility.value = {
+          BlinkerEnum.left: false,
+          BlinkerEnum.right: false,
+        };
+      },
+      [hazardVisibility, blinkerVisibility, blinkerState],
+    );
+
+    final turnOnHazard = useCallback(
+      () {
+        hazardVisibility.value = !hazardVisibility.value;
+        blinkerVisibility.value = {
+          BlinkerEnum.left: hazardVisibility.value,
+          BlinkerEnum.right: hazardVisibility.value,
+        };
+      },
+      [hazardVisibility, blinkerVisibility, blinkerState],
+    );
+
+    final turnOnSingleBlinker = useCallback(
+      () {
+        blinkerVisibility.value = {
+          BlinkerEnum.left: blinkerState == BlinkerEnum.left
+              ? !blinkerVisibility.value[BlinkerEnum.left]!
+              : false,
+          BlinkerEnum.right: blinkerState == BlinkerEnum.right
+              ? !blinkerVisibility.value[BlinkerEnum.right]!
+              : false,
+        };
+      },
+      [hazardVisibility, blinkerVisibility, blinkerState],
+    );
+
     useEffect(() {
       final timer = Timer.periodic(
         const Duration(milliseconds: 300),
         (_) {
           if (blinkerState == null) {
-            blinkerVisibility.value = {
-              BlinkerEnum.left: false,
-              BlinkerEnum.right: false,
-            };
-            return;
+            turnOff();
           } else if (blinkerState == BlinkerEnum.hazard) {
-            blinkerVisibility.value = {
-              BlinkerEnum.left: !blinkerVisibility.value[BlinkerEnum.left]!,
-              BlinkerEnum.right: !blinkerVisibility.value[BlinkerEnum.right]!,
-            };
+            turnOnHazard();
           } else {
-            blinkerVisibility.value = {
-              BlinkerEnum.left: blinkerState == BlinkerEnum.left
-                  ? !blinkerVisibility.value[BlinkerEnum.left]!
-                  : false,
-              BlinkerEnum.right: blinkerState == BlinkerEnum.right
-                  ? !blinkerVisibility.value[BlinkerEnum.right]!
-                  : false,
-            };
+            turnOnSingleBlinker();
           }
         },
       );
       return () => timer.cancel();
-    }, [blinkerState, blinkerVisibility]);
+    }, [blinkerState, turnOnHazard, turnOnSingleBlinker, turnOff]);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        ...BlinkerEnum.values.mapIndexed(
+        ...BlinkerEnum.values.where((element) => element != BlinkerEnum.off).mapIndexed(
           (index, blinker) {
             return Expanded(
               child: Padding(
@@ -67,14 +91,14 @@ class BlinkerControls extends HookConsumerWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: () => ref.read(blinkerController.notifier).setBlinker(blinker),
+                  onPressed: () => ref.read(blinkerControllerProvider.notifier).setBlinker(blinker),
                   child: Opacity(
                     opacity: _getBlinkerOpacity(
                       indicator: blinker,
                       blinkerVisibility: blinkerVisibility.value,
                     ),
                     child: SvgPicture.asset(
-                      blinker.icon,
+                      blinker.icon!,
                       width: 60,
                       height: 40,
                     ),
@@ -104,9 +128,10 @@ class BlinkerControls extends HookConsumerWidget {
 enum BlinkerEnum {
   left(icon: 'assets/icons/left_blinker_on.svg'),
   hazard(icon: 'assets/icons/hazard_lights.svg'),
-  right(icon: 'assets/icons/right_blinker_on.svg');
+  right(icon: 'assets/icons/right_blinker_on.svg'),
+  off;
 
-  const BlinkerEnum({required this.icon});
+  const BlinkerEnum({this.icon});
 
-  final String icon;
+  final String? icon;
 }

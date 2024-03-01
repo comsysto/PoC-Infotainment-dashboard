@@ -6,7 +6,6 @@ const gradientEndColorLight = Color(0xFF000000);
 const primaryColorLight = Color(0xFF0078D6);
 const errorColorLight = Color(0xFF8B181B);
 const shadowColorLight = Color(0x26000000);
-const blinkerColorLight = Color(0xFF6bfc03);
 
 //Dark pallete
 const gradientBeginColorDark = Color(0xFF393939);
@@ -14,7 +13,6 @@ const gradientEndColorDark = Color(0xFF000000);
 const primaryColorDark = Color(0xFF0078D6);
 const errorColorDark = Color(0xFF8B181B);
 const shadowColorDark = Color(0x26000000);
-const blinkerColorDark = Color(0xFF6bfc03);
 
 class AppColors extends ThemeExtension<AppColors> {
   final Color? gradientBeginColor;
@@ -22,7 +20,6 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color? primaryColor;
   final Color? errorColor;
   final Color? shadowColor;
-  final Color? blinkerColor;
 
   const AppColors({
     required this.gradientBeginColor,
@@ -30,7 +27,6 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.primaryColor,
     required this.errorColor,
     required this.shadowColor,
-    required this.blinkerColor,
   });
 
   @override
@@ -48,7 +44,6 @@ class AppColors extends ThemeExtension<AppColors> {
         primaryColor: primaryColor ?? this.primaryColor,
         errorColor: errorColor ?? this.errorColor,
         shadowColor: shadowColor ?? this.shadowColor,
-        blinkerColor: blinkerColor ?? this.blinkerColor,
       );
 
   @override
@@ -63,7 +58,6 @@ class AppColors extends ThemeExtension<AppColors> {
       primaryColor: Color.lerp(primaryColor, other.primaryColor, t),
       errorColor: Color.lerp(errorColor, other.errorColor, t),
       shadowColor: Color.lerp(shadowColor, other.shadowColor, t),
-      blinkerColor: Color.lerp(blinkerColor, other.blinkerColor, t),
     );
   }
 }

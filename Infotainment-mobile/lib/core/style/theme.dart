@@ -18,7 +18,6 @@ class AppTheme {
         primaryColor: primaryColorLight,
         errorColor: errorColorLight,
         shadowColor: shadowColorLight,
-        blinkerColor: blinkerColorLight,
       ),
     ],
   );
@@ -37,7 +36,6 @@ class AppTheme {
         primaryColor: primaryColorDark,
         errorColor: errorColorDark,
         shadowColor: shadowColorDark,
-        blinkerColor: blinkerColorDark,
       ),
     ],
   );

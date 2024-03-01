@@ -16,7 +16,6 @@ class BasicControlsScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final batteryIcon = useMemoized(
       () {
-        //todo: value kasnije spojiti kak spada
         return const Icon(
           Icons.battery_2_bar,
           size: 40,
@@ -36,7 +35,6 @@ class BasicControlsScreen extends HookConsumerWidget {
             ),
             const SizedBox(width: 24),
             Text(
-              //todo: intl
               'E350d 4Matic',
               style: context.textTitle,
             ),
@@ -69,7 +67,6 @@ class BasicControlsScreen extends HookConsumerWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          //todo: value kasnije spojiti kak spada
                           '23%',
                           style: context.textBody,
                         ),
@@ -89,9 +86,7 @@ class BasicControlsScreen extends HookConsumerWidget {
                 const Padding(
                   padding: EdgeInsets.only(top: 16, bottom: 8),
                   child: TelemetryCard(
-                    //todo: intl
                     title: 'Current speed',
-                    //todo: value kasnije spojiti kak spada
                     value: '0',
                     type: TelemetryType.speed,
                   ),
@@ -99,9 +94,7 @@ class BasicControlsScreen extends HookConsumerWidget {
                 const Padding(
                   padding: EdgeInsets.only(bottom: 8),
                   child: TelemetryCard(
-                    //todo: intl
                     title: 'Current RPM',
-                    //todo: value kasnije spojiti kak spada
                     value: '0',
                     type: TelemetryType.rpm,
                   ),
