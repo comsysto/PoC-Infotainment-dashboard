@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:infotainment/core/di.dart';
 import 'package:infotainment/core/style/style_extensions.dart';
 import 'package:infotainment/core/style/text_styles.dart';
-import 'package:infotainment/features/tachometer/presentation/controller/tachometer_provider.dart';
 
 class SpeedIndicator extends ConsumerWidget {
   const SpeedIndicator({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final tachometerTelemetry = ref.watch(tachometerProvider);
+    final tachometerTelemetry = ref.watch(telemetryProvider);
     return Expanded(
       child: Stack(
         fit: StackFit.expand,
@@ -18,8 +18,10 @@ class SpeedIndicator extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               tachometerTelemetry.when(
-                data: (telemetry) =>
-                    Text('${telemetry.speed}', style: context.textStyle.speedIndicator),
+                data: (telemetry) => Text(
+                  '${telemetry.speed}',
+                  style: context.textStyle.speedIndicator,
+                ),
                 error: (error, _) => const Text('Error'),
                 loading: () => const Text(''),
               ),
