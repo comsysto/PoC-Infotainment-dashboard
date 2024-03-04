@@ -10,7 +10,8 @@ const shadowColorLight = Color(0x26000000);
 const personalBubbleColorLight = Color(0xFFF5F5F5);
 const mechanicBubbleColorLight = primaryColorLight;
 const formAnswerColorLight = Color(0xFF595959);
-
+const optionCardBackgroundColorLight = gradientBeginColorLight;
+const optionHighlihtColorLight = Color(0xFF8E8E8E);
 //Dark pallete
 const gradientBeginColorDark = Color(0xFF393939);
 const gradientEndColorDark = Color(0xFF000000);
@@ -21,6 +22,8 @@ const shadowColorDark = Color(0x26000000);
 const personalBubbleColorDark = Color(0xFFF5F5F5);
 const mechanicBuubleColorDark = primaryColorDark;
 const formAnswerColorDark = Color(0xFF595959);
+const optionCardBackgroundColorDark = gradientBeginColorDark;
+const optionHighlihtColorDark = Color(0xFF8E8E8E);
 
 class AppColors extends ThemeExtension<AppColors> {
   final Color? gradientBeginColor;
@@ -32,6 +35,8 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color? personalBubbleColor;
   final Color? mechanicBubbleColor;
   final Color? formAnswerColor;
+  final Color? optionCardBackgroundColor;
+  final Color? optionHighlightColor;
 
   const AppColors({
     required this.gradientBeginColor,
@@ -43,6 +48,8 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.personalBubbleColor,
     required this.mechanicBubbleColor,
     required this.formAnswerColor,
+    required this.optionCardBackgroundColor,
+    required this.optionHighlightColor,
   });
 
   @override
@@ -57,6 +64,8 @@ class AppColors extends ThemeExtension<AppColors> {
     final Color? mechanicBubbleColor,
     final Color? formAnswerColor,
     final Color? blinkerColor,
+    final Color? optionCardBackgroundColor,
+    final Color? optionHighlightColor,
   }) =>
       AppColors(
         gradientBeginColor: gradientBeginColor ?? this.gradientBeginColor,
@@ -68,6 +77,8 @@ class AppColors extends ThemeExtension<AppColors> {
         personalBubbleColor: personalBubbleColor ?? this.personalBubbleColor,
         mechanicBubbleColor: mechanicBubbleColor ?? this.mechanicBubbleColor,
         formAnswerColor: formAnswerColor ?? this.formAnswerColor,
+        optionCardBackgroundColor: optionCardBackgroundColor ?? this.optionCardBackgroundColor,
+        optionHighlightColor: optionHighlightColor ?? this.optionHighlightColor,
       );
 
   @override
@@ -86,6 +97,8 @@ class AppColors extends ThemeExtension<AppColors> {
       personalBubbleColor: Color.lerp(personalBubbleColor, other.personalBubbleColor, t),
       mechanicBubbleColor: Color.lerp(mechanicBubbleColor, other.mechanicBubbleColor, t),
       formAnswerColor: Color.lerp(formAnswerColor, other.formAnswerColor, t),
+      optionCardBackgroundColor: Color.lerp(optionCardBackgroundColor, other.optionCardBackgroundColor, t),
+      optionHighlightColor: Color.lerp(optionHighlightColor, other.optionHighlightColor, t),
     );
   }
 }

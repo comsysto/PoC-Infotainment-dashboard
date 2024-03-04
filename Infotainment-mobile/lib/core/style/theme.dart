@@ -22,6 +22,8 @@ class AppTheme {
         personalBubbleColor: personalBubbleColorLight,
         mechanicBubbleColor: mechanicBubbleColorLight,
         formAnswerColor: formAnswerColorLight,
+        optionCardBackgroundColor: optionCardBackgroundColorLight,
+        optionHighlightColor: optionHighlihtColorLight,
       ),
     ],
   );
@@ -44,6 +46,8 @@ class AppTheme {
         personalBubbleColor: personalBubbleColorDark,
         mechanicBubbleColor: mechanicBuubleColorDark,
         formAnswerColor: formAnswerColorDark,
+        optionCardBackgroundColor: optionCardBackgroundColorDark,
+        optionHighlightColor: optionHighlihtColorDark,
       ),
     ],
   );

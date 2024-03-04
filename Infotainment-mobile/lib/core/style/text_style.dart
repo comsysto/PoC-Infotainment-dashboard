@@ -42,6 +42,28 @@ const _actionButtonTextStyle = TextStyle(
   fontSize: 16,
 );
 
+const _profileTitleTextStyle = TextStyle(
+  fontFamily: 'MBCorpoSTitle',
+  fontSize: 18,
+  fontWeight: FontWeight.normal,
+  color: Colors.white,
+);
+
+const _optionCardTitleTextStyle = TextStyle(
+  fontFamily: 'MBCorpoSTitle',
+  fontSize: 18,
+  fontWeight: FontWeight.normal,
+  color: Colors.white,
+);
+
+const _optionCardDescriptionTextStyle = TextStyle(
+  fontFamily: 'MBCorpoSTitle',
+  fontSize: 12,
+  fontWeight: FontWeight.normal,
+  color: Colors.white,
+  height: 1.0,
+);
+
 extension CustomTextStyle on TextTheme {
   TextStyle get titleTextStyle => _titleTextStyle;
   TextStyle get subtitleTextStyle => _subtitleTextStyle;
@@ -50,4 +72,7 @@ extension CustomTextStyle on TextTheme {
   TextStyle get feedbackTitleTextStyle => _feedbackTitleTextStyle;
   TextStyle get feedbackTextTextStyle => _feedbackTextTextStyle;
   TextStyle get actionButtonTextStyle => _actionButtonTextStyle;
+  TextStyle get profileTitleTextStyle => _profileTitleTextStyle;
+  TextStyle get optionCardTitleTextStyle => _optionCardTitleTextStyle;
+  TextStyle get optionCardDescriptionTextStyle => _optionCardDescriptionTextStyle;
 }
