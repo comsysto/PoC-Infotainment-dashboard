@@ -20,6 +20,7 @@ dependencies:
   sliver_tools: ^0.2.12
   flutter_native_splash: ^2.3.11
   flutter_svg: ^2.0.10+1
+  collection: ^1.18.0
 
 dev_dependencies:
   flutter_test:

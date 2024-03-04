@@ -21,8 +21,33 @@ const _bodyTextStyle = TextStyle(
   color: Colors.white,
 );
 
+const _bubbleTextStyle = TextStyle(
+  fontFamily: 'MBCorpoSTitle',
+  fontSize: 14,
+  color: Colors.white,
+);
+
+const _feedbackTitleTextStyle = TextStyle(
+  fontFamily: 'MBCorpoSTitle',
+  fontSize: 16,
+);
+
+const _feedbackTextTextStyle = TextStyle(
+  fontFamily: 'MBCorpoSTitle',
+  fontSize: 14,
+);
+
+const _actionButtonTextStyle = TextStyle(
+  fontFamily: 'MBCorpoSTitle',
+  fontSize: 16,
+);
+
 extension CustomTextStyle on TextTheme {
   TextStyle get titleTextStyle => _titleTextStyle;
   TextStyle get subtitleTextStyle => _subtitleTextStyle;
   TextStyle get bodyTextStyle => _bodyTextStyle;
+  TextStyle get bubbleTextStyle => _bubbleTextStyle;
+  TextStyle get feedbackTitleTextStyle => _feedbackTitleTextStyle;
+  TextStyle get feedbackTextTextStyle => _feedbackTextTextStyle;
+  TextStyle get actionButtonTextStyle => _actionButtonTextStyle;
 }
