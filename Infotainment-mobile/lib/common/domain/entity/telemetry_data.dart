@@ -24,9 +24,7 @@ class TelemetryData {
       speed: (telemetryJson['velocity'] as double?)?.round() ?? 0,
       rpm: (telemetryJson['rpm'] as double?)?.round() ?? 0,
       blinker: telemetryJson['blinker'] != null
-          ? BlinkerEnum.values.firstWhereOrNull(
-              (e) => e.toString() == telemetryJson['blinker'],
-            )
+          ? BlinkerEnum.values.firstWhereOrNull((e) => e.toString() == telemetryJson['blinker'])
           : null,
     );
   }

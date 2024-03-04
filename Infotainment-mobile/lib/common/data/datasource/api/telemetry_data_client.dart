@@ -5,8 +5,8 @@ import 'package:infotainment_mobile_app/features/basic_car_controls/presentation
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class TelemetryDataClient {
-  late WebSocketChannel telemetryChannel;
-  late WebSocketChannel commandChannel;
+  late final WebSocketChannel telemetryChannel;
+  late final WebSocketChannel commandChannel;
 
   TelemetryDataClient() {
     openCommandSocket();
