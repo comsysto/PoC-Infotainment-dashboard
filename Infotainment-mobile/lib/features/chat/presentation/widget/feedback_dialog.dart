@@ -16,7 +16,7 @@ class FeedbackDialog extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var isAnswered = useState(false);
+    final isAnswered = useState(false);
 
     return isAnswered.value
         ? const AnsweredForm()
