@@ -58,7 +58,7 @@ class VehicleIndicators extends HookConsumerWidget {
             Image.asset(
               'assets/icons/battery.png',
               height: 50,
-              color: telemetry.batteryLevel <= 76 ? null : inactiveColor,
+              color: telemetry.batteryLevel <= 60 ? null : inactiveColor,
             ),
             Image.asset(
               'assets/icons/engine-coolant.png',

@@ -19,7 +19,7 @@ class Blinkers extends HookConsumerWidget {
 
     useEffect(() {
       final timer = Timer.periodic(
-        const Duration(milliseconds: 500),
+        const Duration(milliseconds: 350),
         (_) {
           if (blinkerState == Blinker.left) {
             isLeftOn.value = !isLeftOn.value;
@@ -48,7 +48,7 @@ class Blinkers extends HookConsumerWidget {
       children: [
         AnimatedOpacity(
           opacity: isLeftOn.value || isHazardOn.value ? 1.0 : 0.0,
-          duration: const Duration(milliseconds: 250),
+          duration: const Duration(milliseconds: 100),
           child: Image.asset(
             'assets/icons/left-blinker.png',
             height: 50,
@@ -56,7 +56,7 @@ class Blinkers extends HookConsumerWidget {
         ),
         AnimatedOpacity(
           opacity: isRightOn.value || isHazardOn.value ? 1.0 : 0.0,
-          duration: const Duration(milliseconds: 250),
+          duration: const Duration(milliseconds: 100),
           child: Image.asset(
             'assets/icons/right-blinker.png',
             height: 50,
