@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:infotainment_mobile_app/core/style/style_extensions.dart';
-import 'package:infotainment_mobile_app/features/chat/presentation/utils/chat_notifier.dart';
+import 'package:infotainment_mobile_app/features/chat/presentation/controller/chat_notifier.dart';
 
 class ChatScreen extends ConsumerWidget {
   const ChatScreen({super.key});
@@ -31,9 +31,9 @@ class ChatScreen extends ConsumerWidget {
               const SizedBox(height: 20),
               Expanded(
                 child: ListView.separated(
-                  itemCount: chatMessages.messages.length,
+                  itemCount: chatMessages.length,
                   separatorBuilder: (_, index) => const SizedBox(height: 20),
-                  itemBuilder: (_, index) => chatMessages.messages[index],
+                  itemBuilder: (_, index) => chatMessages[index],
                 ),
               ),
             ],

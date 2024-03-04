@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:infotainment_mobile_app/core/style/style_extensions.dart';
-import 'package:infotainment_mobile_app/features/chat/presentation/utils/chat_notifier.dart';
 import 'package:infotainment_mobile_app/features/chat/presentation/widget/action_button.dart';
 
-class FeedbackDialog extends ConsumerWidget {
+class FeedbackDialog extends HookConsumerWidget {
   final VoidCallback onAccept;
   final VoidCallback onDecline;
 
@@ -16,13 +16,19 @@ class FeedbackDialog extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isAnswered = ref.watch(chatNotifierProvider);
+    var isAnswered = useState(false);
 
-    return isAnswered.isAnswered
+    return isAnswered.value
         ? const AnsweredForm()
         : QuestionForm(
-            onAccept: () => onAccept(),
-            onDecline: () => onDecline(),
+            onAccept: () {
+              isAnswered.value = true;
+              onAccept();
+            },
+            onDecline: () {
+              isAnswered.value = true;
+              onDecline();
+            },
           );
   }
 }
