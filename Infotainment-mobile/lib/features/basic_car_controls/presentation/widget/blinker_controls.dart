@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:infotainment_mobile_app/core/style/style_extensions.dart';
-import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/controller/blinker_controller.dart';
+import 'package:infotainment_mobile_app/common/presentation/widgets/action_button.dart';
+import 'package:infotainment_mobile_app/core/di/di.dart';
 
 class BlinkerControls extends HookConsumerWidget {
   const BlinkerControls({super.key});
@@ -82,15 +82,7 @@ class BlinkerControls extends HookConsumerWidget {
             return Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: context.colorGradientEnd,
-                    backgroundColor: context.colorGradientBegin,
-                    padding: const EdgeInsets.all(16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
+                child: ActionButton(
                   onPressed: () => ref.read(blinkerControllerProvider.notifier).setBlinker(blinker),
                   child: Opacity(
                     opacity: _getBlinkerOpacity(
