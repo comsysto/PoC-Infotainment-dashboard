@@ -116,7 +116,7 @@ class BasicControlsScreen extends HookConsumerWidget {
                               padding: const EdgeInsets.only(bottom: 8),
                               child: TelemetryCard(
                                 title: 'Current RPM',
-                                value: value.rpm.toString() ?? '',
+                                value: value.rpm.toString(),
                                 type: TelemetryType.rpm,
                               ),
                             ),
