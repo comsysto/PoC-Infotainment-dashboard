@@ -21,8 +21,33 @@ const _bodyTextStyle = TextStyle(
   color: Colors.white,
 );
 
+const _profileTitleTextStyle = TextStyle(
+  fontFamily: 'MBCorpoSTitle',
+  fontSize: 18,
+  fontWeight: FontWeight.normal,
+  color: Colors.white,
+);
+
+const _optionCardTitleTextStyle = TextStyle(
+  fontFamily: 'MBCorpoSTitle',
+  fontSize: 18,
+  fontWeight: FontWeight.normal,
+  color: Colors.white,
+);
+
+const _optionCardDescriptionTextStyle = TextStyle(
+  fontFamily: 'MBCorpoSTitle',
+  fontSize: 12,
+  fontWeight: FontWeight.normal,
+  color: Colors.white,
+  height: 1.0,
+);
+
 extension CustomTextStyle on TextTheme {
   TextStyle get titleTextStyle => _titleTextStyle;
   TextStyle get subtitleTextStyle => _subtitleTextStyle;
   TextStyle get bodyTextStyle => _bodyTextStyle;
+  TextStyle get profileTitleTextStyle => _profileTitleTextStyle;
+  TextStyle get optionCardTitleTextStyle => _optionCardTitleTextStyle;
+  TextStyle get optionCardDescriptionTextStyle => _optionCardDescriptionTextStyle;
 }

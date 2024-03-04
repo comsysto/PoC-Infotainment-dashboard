@@ -18,6 +18,8 @@ class AppTheme {
         primaryColor: primaryColorLight,
         errorColor: errorColorLight,
         shadowColor: shadowColorLight,
+        optionCardBackgroundColor: optionCardBackgroundColorLight,
+        optionHighlightColor: optionHighlihtColorLight,
       ),
     ],
   );
@@ -36,6 +38,8 @@ class AppTheme {
         primaryColor: primaryColorDark,
         errorColor: errorColorDark,
         shadowColor: shadowColorDark,
+        optionCardBackgroundColor: optionCardBackgroundColorDark,
+        optionHighlightColor: optionHighlihtColorDark,
       ),
     ],
   );
