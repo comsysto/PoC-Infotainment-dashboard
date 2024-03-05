@@ -16,7 +16,6 @@ final networkConfigProvider = NotifierProvider<NetworkConfigNotifier, String>(
 final telemetryDataClientProvider = Provider<TelemetryDataClient>(
   (ref) {
     final ipAddress = ref.watch(networkConfigProvider);
-    print('ip address changed.');
     return TelemetryDataClient(ipAddress);
   },
 );
