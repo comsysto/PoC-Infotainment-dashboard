@@ -8,8 +8,9 @@ import 'package:infotainment/features/common/presentation/screen/main_tacho_scre
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: []);
-  
-  ipAddress = await rootBundle.loadString('assets/connection.txt');
+
+  ipAddress = await rootBundle.loadString('assets/connection_infotainment.txt');
+  ipAddressMobile = await rootBundle.loadString('assets/connection_mobile.txt');
   runApp(const ProviderScope(child: MainApp()));
 }
 

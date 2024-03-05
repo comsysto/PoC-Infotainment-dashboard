@@ -7,6 +7,7 @@ import 'package:infotainment/features/common/presentation/controller/telemetry_c
 
 /* API CLIENT */
 String ipAddress = '10.100.3.72:56034';
+String ipAddressMobile = '10.100.3.72:56035';
 final telemetryDataClientProvider = Provider<TelemetryDataClient>(
   (ref) => TelemetryDataClient(ipAddress),
 );

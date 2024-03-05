@@ -20,6 +20,10 @@ class TelemetryDataClient {
     return telemetryChannel.stream;
   }
 
+  Stream<dynamic> listenCommandChannel() {
+    return commandChannel.stream;
+  }
+
   void openCommandSocket() {
     final uri = Uri.parse('ws://$address/mercedes/carMock/command');
     commandChannel = WebSocketChannel.connect(uri);
@@ -42,6 +46,15 @@ class TelemetryDataClient {
           "commands": {
             "blinker": null,
             "velocity": "${velocityEnum.name}"
+          }
+        }''',
+      );
+    } else {
+      commandChannel.sink.add(
+        '''{
+          "commands": {
+            "blinker": null,
+            "velocity": null
           }
         }''',
       );

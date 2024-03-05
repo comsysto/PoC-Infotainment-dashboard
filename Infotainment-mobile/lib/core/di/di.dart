@@ -30,6 +30,10 @@ final telemetryProvider = StreamProvider<TelemetryData>(
   (ref) => TelemetryController(ref.watch(telemetryRepositoryProvider)).listen(),
 );
 
+final commandChannelProvider = StreamProvider<dynamic>(
+  (ref) => TelemetryController(ref.watch(telemetryRepositoryProvider)).listenCommandChannel(),
+);
+
 final telemetryControllerProvider = Provider<TelemetryController>(
   (ref) => TelemetryController(ref.watch(telemetryRepositoryProvider)),
 );

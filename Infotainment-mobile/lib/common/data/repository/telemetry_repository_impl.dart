@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:infotainment_mobile_app/common/data/datasource/api/telemetry_data_client.dart';
 import 'package:infotainment_mobile_app/common/data/datasource/globals.dart';
@@ -15,11 +16,17 @@ class TelemetryRepositoryImpl implements TelemetryRepository {
   @override
   Stream<TelemetryData> listen() {
     return _client.listen().map((event) {
+      log('Received event: $event');
       final json = jsonDecode(event);
       final telemetry = TelemetryData.fromJson(json);
       final blinker = readBlinker(telemetry);
       return telemetry.copyWith(blinker: blinker);
     });
+  }
+
+  @override
+  Stream<dynamic> listenCommandChannel() {
+    return _client.listenCommandChannel();
   }
 
   @override
@@ -35,6 +42,11 @@ class TelemetryRepositoryImpl implements TelemetryRepository {
   @override
   void decreaseVelocity() {
     _client.sendCommand(velocityEnum: VelocityEnum.decrease);
+  }
+
+  @override
+  void sendEmptyRequest() {
+    _client.sendCommand();
   }
 
   BlinkerEnum readBlinker(final TelemetryData telemetry) {

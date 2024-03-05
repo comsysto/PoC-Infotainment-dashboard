@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 import 'dart:math' as math;
 
@@ -27,6 +28,21 @@ class BasicControlsScreen extends HookConsumerWidget {
         );
       },
       [telemetryData],
+    );
+
+    useEffect(
+      () {
+        final timer = Timer.periodic(
+          const Duration(seconds: 5),
+          (_) {
+            ref.read(telemetryControllerProvider).sendEmptyRequest();
+          },
+        );
+        return () {
+          timer.cancel();
+        };
+      },
+      [],
     );
 
     return Scaffold(
@@ -101,7 +117,6 @@ class BasicControlsScreen extends HookConsumerWidget {
                     ),
                     telemetryData.when(
                       data: (value) {
-                        log('Telemetry data: $value');
                         return Column(
                           children: [
                             Padding(
@@ -147,6 +162,19 @@ class BasicControlsScreen extends HookConsumerWidget {
                       },
                       error: (error, stackTrace) {
                         log('Error: $error', stackTrace: stackTrace);
+                        return const SizedBox.shrink();
+                      },
+                    ),
+                    ref.watch(commandChannelProvider).when(
+                      data: (value) {
+                        log('Command channel value: $value');
+                        return const SizedBox.shrink();
+                      },
+                      error: (error, stackTrace) {
+                        log('Error: $error', stackTrace: stackTrace);
+                        return const SizedBox.shrink();
+                      },
+                      loading: () {
                         return const SizedBox.shrink();
                       },
                     ),

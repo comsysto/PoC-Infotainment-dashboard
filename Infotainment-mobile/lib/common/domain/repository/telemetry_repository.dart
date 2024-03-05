@@ -4,9 +4,13 @@ import 'package:infotainment_mobile_app/features/basic_car_controls/presentation
 abstract interface class TelemetryRepository {
   Stream<TelemetryData> listen();
 
+  Stream<dynamic> listenCommandChannel();
+
   void setBlinker(final BlinkerEnum blinker);
 
   void increaseVelocity();
 
   void decreaseVelocity();
+
+  void sendEmptyRequest();
 }

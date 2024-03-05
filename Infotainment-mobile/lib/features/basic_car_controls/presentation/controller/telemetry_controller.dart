@@ -9,6 +9,8 @@ class TelemetryController {
 
   Stream<TelemetryData> listen() => _telemetryRepository.listen();
 
+  Stream<dynamic> listenCommandChannel() => _telemetryRepository.listenCommandChannel();
+
   void setBlinker(final BlinkerEnum blinker) {
     _telemetryRepository.setBlinker(blinker);
   }
@@ -19,5 +21,9 @@ class TelemetryController {
 
   void decreaseVelocity() {
     _telemetryRepository.decreaseVelocity();
+  }
+
+  void sendEmptyRequest() {
+    _telemetryRepository.sendEmptyRequest();
   }
 }
