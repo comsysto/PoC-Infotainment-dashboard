@@ -5,22 +5,23 @@ import 'package:infotainment_mobile_app/features/basic_car_controls/presentation
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class TelemetryDataClient {
-  late final WebSocketChannel telemetryChannel;
-  late final WebSocketChannel commandChannel;
+  final String address;
+  late WebSocketChannel telemetryChannel;
+  late WebSocketChannel commandChannel;
 
-  TelemetryDataClient() {
+  TelemetryDataClient(this.address) {
     openCommandSocket();
   }
 
   Stream<dynamic> listen() {
-    final uri = Uri.parse('ws://10.100.3.72:56035/mercedes/carMock/update');
+    final uri = Uri.parse('ws://$address/mercedes/carMock/update');
     telemetryChannel = WebSocketChannel.connect(uri);
 
     return telemetryChannel.stream;
   }
 
   void openCommandSocket() {
-    final uri = Uri.parse('ws://10.100.3.72:56035/mercedes/carMock/command');
+    final uri = Uri.parse('ws://$address/mercedes/carMock/command');
     commandChannel = WebSocketChannel.connect(uri);
   }
 

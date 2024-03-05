@@ -3,12 +3,22 @@ import 'package:infotainment_mobile_app/common/data/datasource/api/telemetry_dat
 import 'package:infotainment_mobile_app/common/data/repository/telemetry_repository_impl.dart';
 import 'package:infotainment_mobile_app/common/domain/entity/telemetry_data.dart';
 import 'package:infotainment_mobile_app/common/domain/repository/telemetry_repository.dart';
+import 'package:infotainment_mobile_app/common/presentation/controller/network_config_notifier.dart';
 import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/controller/blinker_controller.dart';
 import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/controller/telemetry_controller.dart';
 import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/widget/blinker_controls.dart';
 
+/* DATASOURCE */
+final networkConfigProvider = NotifierProvider<NetworkConfigNotifier, String>(
+  () => NetworkConfigNotifier(),
+);
+
 final telemetryDataClientProvider = Provider<TelemetryDataClient>(
-  (ref) => TelemetryDataClient(),
+  (ref) {
+    final ipAddress = ref.watch(networkConfigProvider);
+    print('ip address changed.');
+    return TelemetryDataClient(ipAddress);
+  },
 );
 
 /* REPOSITORY */

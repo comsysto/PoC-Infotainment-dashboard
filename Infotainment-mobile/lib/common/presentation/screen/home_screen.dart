@@ -15,6 +15,7 @@ class HomeScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedIndex = useState(0);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: _options[selectedIndex.value],
       bottomNavigationBar: NavigationBar(
         selectedIndex: selectedIndex.value,

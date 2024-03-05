@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:infotainment_mobile_app/core/style/style_extensions.dart';
+import 'package:infotainment_mobile_app/features/settings/presentation/utils/dialog_utils.dart';
 import 'package:infotainment_mobile_app/features/settings/presentation/widget/option_card.dart';
 
 class SettingsScreen extends HookConsumerWidget {
@@ -8,7 +10,11 @@ class SettingsScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final addressController = useTextEditingController();
+    final portController = useTextEditingController();
+
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -54,10 +60,11 @@ class SettingsScreen extends HookConsumerWidget {
                   description: 'Discover the most frequent questions here',
                 ),
                 const SizedBox(height: 20),
-                const OptionCard(
+                OptionCard(
                   icon: Icons.alternate_email_rounded,
                   title: 'Contact',
                   description: 'Feel free to contact us, we are here for you',
+                  onPressed: () => showConfigDialog(context, ref, addressController, portController),
                 ),
               ],
             ),
