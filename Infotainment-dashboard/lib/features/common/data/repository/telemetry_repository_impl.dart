@@ -16,7 +16,6 @@ class TelemetryRepositoryImpl implements TelemetryRepository {
       final json = jsonDecode(event);
       final telemetry = TelemetryData.fromJson(json);
       final blinker = readBlinker(telemetry);
-      print('Telemetry: $telemetry');
       return telemetry.copyWith(blinker: blinker);
     });
   }

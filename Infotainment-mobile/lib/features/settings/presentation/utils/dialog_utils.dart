@@ -37,13 +37,13 @@ void showConfigDialog(
               if (addressController.text.isNotEmpty && portController.text.isNotEmpty) {
                 ipAddress = addressController.text;
                 portNum = portController.text;
-                ref.read(networkConfigProvider.notifier).setConfig(ipAddress, portNum);
+                ref.read(networkConfigProvider.notifier).setConfig(ipAddress: ipAddress, port: portNum);
               } else if (addressController.text.isNotEmpty) {
                 ipAddress = addressController.text;
-                ref.read(networkConfigProvider.notifier).setConfig(ipAddress, portNum);
+                ref.read(networkConfigProvider.notifier).setConfig(ipAddress: ipAddress);
               } else if (portController.text.isNotEmpty) {
                 portNum = portController.text;
-                ref.read(networkConfigProvider.notifier).setConfig(ipAddress, portNum);
+                ref.read(networkConfigProvider.notifier).setConfig(port: portNum);
               }
               Navigator.of(context).pop();
             },

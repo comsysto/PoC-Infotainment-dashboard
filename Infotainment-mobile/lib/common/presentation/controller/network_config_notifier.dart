@@ -6,7 +6,7 @@ class NetworkConfigNotifier extends Notifier<String> {
     return '10.100.3.72:56035';
   }
 
-  void setConfig(final String? ipAddress, final String? port) {
+  void setConfig({final String? ipAddress, final String? port}) {
     state = '${ipAddress ?? '10.100.3.72'}:${port ?? '56035'}';
   }
 }

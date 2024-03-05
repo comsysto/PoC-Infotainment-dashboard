@@ -7,7 +7,6 @@ import 'core/di/router_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FlutterError.demangleStackTrace = (StackTrace stack) => stack;
-
   runApp(const ProviderScope(child: App()));
 }
 
