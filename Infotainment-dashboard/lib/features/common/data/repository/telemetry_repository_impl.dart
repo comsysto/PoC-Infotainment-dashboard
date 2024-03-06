@@ -10,7 +10,7 @@ class TelemetryRepositoryImpl implements TelemetryRepository {
   final TelemetryDataClient _client;
   late IOSink _logSink;
 
-  const TelemetryRepositoryImpl(this._client) {
+  TelemetryRepositoryImpl(this._client) {
     _initializeLogging();
   }
 
