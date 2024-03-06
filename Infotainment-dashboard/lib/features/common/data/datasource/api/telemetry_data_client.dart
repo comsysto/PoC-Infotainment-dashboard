@@ -32,17 +32,42 @@ class TelemetryDataClient {
         _log('Connecting to websocket address: $address');
         channel = WebSocketChannel.connect(uri);
         _log('Connected to: $address');
-      } catch(error) {
 
+        // Listen for messages from the WebSocket channel
+        channel.stream.listen(
+          (message) {
+            _log('Received message from websocket: $message');
+            controller.add(message);
+          },
+          onError: (error) {
+            _log('Error receiving message from websocket: $error');
+            if (retryCount < 1000) {
+              _log('Retrying to Connect to websocket $address, count: $retryCount');
+              Future.delayed(Duration(seconds: 1), () {
+                connectWithRetry(retryCount + 1);
+              });
+            } else {
+              _log('Connection to websocket $address closed.');
+              controller.close();
+            }
+          },
+          onDone: () {
+            _log('Connection to websocket $address closed.');
+            controller.close();
+          },
+          cancelOnError: true,
+        );
+      } catch (error) {
         _log('Error connecting to socket: $error');
         if (retryCount < 1000) {
+          _log('Retrying to Connect to websocket $address, count: $retryCount');
           Future.delayed(Duration(seconds: 1), () {
-            _log('Retrying to Connect to websocket $address, count: $retryCount');
             connectWithRetry(retryCount + 1);
           });
+        } else {
+          _log('Connection to websocket $address closed.');
+          controller.close();
         }
-        _log('Connection to websocket $address closed.');
-        controller.close();
       }
     }
 

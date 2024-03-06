@@ -25,6 +25,7 @@ class TelemetryRepositoryImpl implements TelemetryRepository {
 
   @override
   Stream<TelemetryData> listen() {
+    _log('Client starting to listen from websocket!');
     return _client.listen().map((event) {
       final json = jsonDecode(event);
       _log('Received data from websocket: $json');
