@@ -26,42 +26,24 @@ class TelemetryDataClient {
     StreamController<dynamic> controller = StreamController<dynamic>();
 
     void connectWithRetry(int retryCount) {
-
       try {
-          final uri = Uri.parse('ws://$address');
-          channel = WebSocketChannel.connect(uri);
-          channel.stream.listen(
-            (data) {
-              controller.add(data);
-            },
-            onError: (error) {
-              if (retryCount < 1000) {
-                Future.delayed(Duration(seconds: 1), () {
-                  _log('Retrying to Connect to websocket $address, count: $retryCount');
-                  connectWithRetry(retryCount + 1);
-                });
-              } else {
-                _log('Connection to websocket $address failed after 1000 retries: $error');
-                controller.addError(error);
-                controller.close();
-              }
-            },
-            onDone: () {
-              _log('Connection to websocket $address closed.');
-              controller.close();
-            },
-            cancelOnError: true,
-          );
-      } catch(e) {
-        _log('Websocket error: $e');
+        _log('Parsing websocket address: $address');
+        final uri = Uri.parse('ws://$address');
+        _log('Connecting to websocket address: $address');
+        channel = WebSocketChannel.connect(uri);
+        _log('Connected to: $address');
+      } catch(error) {
+
+        _log('Error connecting to socket: $error');
         if (retryCount < 1000) {
           Future.delayed(Duration(seconds: 1), () {
             _log('Retrying to Connect to websocket $address, count: $retryCount');
             connectWithRetry(retryCount + 1);
           });
         }
+        _log('Connection to websocket $address closed.');
+        controller.close();
       }
-      
     }
 
     connectWithRetry(0);
