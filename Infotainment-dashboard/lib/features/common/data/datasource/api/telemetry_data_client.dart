@@ -22,16 +22,13 @@ class TelemetryDataClient {
 
   Stream<dynamic> listen() {
     _log('Listening on websocket address $address');
-
     StreamController<dynamic> controller = StreamController<dynamic>();
 
     void connectWithRetry(int retryCount) {
       try {
-        _log('Parsing websocket address: $address');
         final uri = Uri.parse('ws://$address');
-        _log('Connecting to websocket address: $address');
         channel = WebSocketChannel.connect(uri);
-        _log('Connected to: $address');
+        _log('Websocket Connected to: $address');
 
         // Listen for messages from the WebSocket channel
         channel.stream.listen(
@@ -40,19 +37,19 @@ class TelemetryDataClient {
             controller.add(message);
           },
           onError: (error) {
-            _log('Error receiving message from websocket: $error');
+            _log('onError(): Error receiving message from websocket: $error');
             if (retryCount < 1000) {
-              _log('Retrying to Connect to websocket $address, count: $retryCount');
+              _log('onError(): Retrying to Connect to websocket $address, count: $retryCount');
               Future.delayed(Duration(seconds: 1), () {
                 connectWithRetry(retryCount + 1);
               });
             } else {
-              _log('Connection to websocket $address closed.');
+              _log('onError(): Connection to websocket $address closed.');
               controller.close();
             }
           },
           onDone: () {
-            _log('Connection to websocket $address closed.');
+            _log('onDone(): Connection to websocket $address closed.');
             controller.close();
           },
           cancelOnError: true,
@@ -60,19 +57,18 @@ class TelemetryDataClient {
       } catch (error) {
         _log('Error connecting to socket: $error');
         if (retryCount < 1000) {
-          _log('Retrying to Connect to websocket $address, count: $retryCount');
+          _log('Error: Retrying to Connect to websocket $address, count: $retryCount');
           Future.delayed(Duration(seconds: 1), () {
             connectWithRetry(retryCount + 1);
           });
         } else {
-          _log('Connection to websocket $address closed.');
+          _log('Error: Connection to websocket $address closed.');
           controller.close();
         }
       }
     }
 
     connectWithRetry(0);
-
     return controller.stream;
   }
 
