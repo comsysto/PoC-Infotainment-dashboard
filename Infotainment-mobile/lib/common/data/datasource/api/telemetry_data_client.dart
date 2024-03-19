@@ -20,9 +20,7 @@ class TelemetryDataClient {
     return telemetryChannel.stream;
   }
 
-  Stream<dynamic> listenCommandChannel() {
-    return commandChannel.stream;
-  }
+  Stream<dynamic> listenCommandChannel() => commandChannel.stream;
 
   void openCommandSocket() {
     final uri = Uri.parse('ws://$address/mercedes/carMock/command');
