@@ -1,12 +1,32 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:infotainment/core/di.dart';
 import 'package:infotainment/core/style/style_extensions.dart';
 import 'package:infotainment/core/style/text_styles.dart';
+import 'package:intl/intl.dart';
 
-class CurrentTripInfo extends StatelessWidget {
+class CurrentTripInfo extends HookConsumerWidget {
   const CurrentTripInfo({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final tripDuration = useState(DateTime(0, 0, 0, 0, 0, 0, 0, 0));
+    final telemetryData = ref.watch(telemetryProvider).valueOrNull;
+
+    useEffect(() {
+      final timer = Timer.periodic(
+        const Duration(seconds: 1),
+        (timer) {
+          if (telemetryData == null || telemetryData.speed < 1) return;
+          tripDuration.value = tripDuration.value.add(const Duration(seconds: 1));
+        },
+      );
+      return timer.cancel;
+    }, [telemetryData, tripDuration]);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       width: double.maxFinite,
@@ -20,7 +40,10 @@ class CurrentTripInfo extends StatelessWidget {
         children: [
           Center(child: Text('Current trip', style: context.textStyle.cardTitle)),
           const _TripComputerRow('9.2l/100km', 'Fuel economy'),
-          const _TripComputerRow('0:21:55', 'Duration'),
+          _TripComputerRow(
+            DateFormat(DateFormat.HOUR24_MINUTE_SECOND).format(tripDuration.value),
+            'Duration',
+          ),
           const _TripComputerRow('378km', 'Distance', isLast: true),
         ],
       ),
