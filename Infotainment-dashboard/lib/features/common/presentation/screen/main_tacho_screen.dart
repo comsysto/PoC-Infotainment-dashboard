@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:infotainment/core/style/style_extensions.dart';
-import 'package:infotainment/features/fuel/presentation/widget/fuel_level_indicator.dart';
+import 'package:infotainment/features/fuel/presentation/widget/battery_level_indicator.dart';
 import 'package:infotainment/features/indicators/presentation/widget/gearbox_mode.dart';
 import 'package:infotainment/features/indicators/presentation/widget/vehicle_indicators.dart';
 import 'package:infotainment/features/tachometer/presentation/widget/blinkers.dart';
@@ -39,7 +39,7 @@ class MainTachoScreen extends ConsumerWidget {
                       padding: EdgeInsets.only(left: 15, bottom: 15),
                       child: Row(
                         children: [
-                          FuelLevelIndicator(),
+                          BatteryLevelIndicator(),
                           Spacer(),
                         ],
                       ),

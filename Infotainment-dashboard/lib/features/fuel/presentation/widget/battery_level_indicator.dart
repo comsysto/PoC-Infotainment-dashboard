@@ -5,8 +5,8 @@ import 'package:infotainment/core/style/colors.dart';
 import 'package:infotainment/core/style/style_extensions.dart';
 import 'package:infotainment/core/style/text_styles.dart';
 
-class FuelLevelIndicator extends ConsumerWidget {
-  const FuelLevelIndicator({super.key});
+class BatteryLevelIndicator extends ConsumerWidget {
+  const BatteryLevelIndicator({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,7 +18,7 @@ class FuelLevelIndicator extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '${(capacity.batteryLevel).toInt()}%',
+            'Battery: ${(capacity.batteryLevel).toInt()}%',
             style: context.textStyle.fuelLevel,
           ),
           const SizedBox(height: 5),
@@ -26,7 +26,7 @@ class FuelLevelIndicator extends ConsumerWidget {
             width: 350,
             child: LinearProgressIndicator(
               minHeight: 10,
-              value: capacity.batteryLevel,
+              value: capacity.batteryLevel.toDouble() / 100.0,
               borderRadius: BorderRadius.circular(20),
               color: textColor,
               backgroundColor: Colors.grey,
