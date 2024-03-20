@@ -4,8 +4,9 @@ import 'package:path_provider/path_provider.dart';
 
 class CustomLogger {
   static final CustomLogger _instance = CustomLogger._privateConstructor();
+
   static CustomLogger get instance => _instance;
-  
+
   CustomLogger._privateConstructor();
 
   late Directory directory;
@@ -13,13 +14,13 @@ class CustomLogger {
 
   Future<void> init() async {
     directory = await getApplicationDocumentsDirectory();
-    if (_fileDoesNotExits()) {
-      logFile = File('$directory/${DateTime.now()}-logs.txt');
-    }
+    logFile = File(
+      '${directory.path}/${_generateFileNameForToday()}-logs.txt',
+    );
   }
 
   void debug(String logToWrite) {
-    logFile.writeAsStringSync('[${DateTime.now()}] - DEBUG: $logToWrite', mode: FileMode.append);
+    logFile.writeAsStringSync('\n[${DateTime.now()}] - DEBUG: $logToWrite', mode: FileMode.append);
   }
 
   void info(String logToWrite) {
@@ -30,5 +31,5 @@ class CustomLogger {
     logFile.writeAsStringSync('[${DateTime.now()}] - ERROR: $logToWrite', mode: FileMode.append);
   }
 
-  bool _fileDoesNotExits() => !File('$directory/${DateTime.now()}-logs.txt').existsSync();
+  String _generateFileNameForToday() => '${DateTime.now().day}-${DateTime.now().month}-${DateTime.now().year}';
 }
