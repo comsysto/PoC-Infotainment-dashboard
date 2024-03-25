@@ -19,37 +19,27 @@ class TelemetryRepositoryImpl implements TelemetryRepository {
       log('Received event: $event');
       final json = jsonDecode(event);
       final telemetry = TelemetryData.fromJson(json);
-      final blinker = readBlinker(telemetry);
+      final blinker = _readBlinker(telemetry);
       return telemetry.copyWith(blinker: blinker);
     });
   }
 
   @override
-  Stream<dynamic> listenCommandChannel() {
-    return _client.listenCommandChannel();
-  }
+  Stream<dynamic> listenCommandChannel() => _client.listenCommandChannel();
 
   @override
-  void setBlinker(final BlinkerEnum blinker) {
-    _client.sendCommand(blinkerEnum: blinker);
-  }
+  void setBlinker(final BlinkerEnum blinker) => _client.sendCommand(blinkerEnum: blinker);
 
   @override
-  void increaseVelocity() {
-    _client.sendCommand(velocityEnum: VelocityEnum.increase);
-  }
+  void increaseVelocity() => _client.sendCommand(velocityEnum: VelocityEnum.increase);
 
   @override
-  void decreaseVelocity() {
-    _client.sendCommand(velocityEnum: VelocityEnum.decrease);
-  }
+  void decreaseVelocity() => _client.sendCommand(velocityEnum: VelocityEnum.decrease);
 
   @override
-  void sendEmptyRequest() {
-    _client.sendCommand();
-  }
+  void sendEmptyRequest() => _client.sendCommand();
 
-  BlinkerEnum readBlinker(final TelemetryData telemetry) {
+  BlinkerEnum _readBlinker(final TelemetryData telemetry) {
     if (telemetry.blinker != null) {
       blinkerState = telemetry.blinker!;
     }
