@@ -6,11 +6,14 @@ import 'package:infotainment_mobile_app/common/domain/entity/telemetry_data.dart
 import 'package:infotainment_mobile_app/common/domain/repository/telemetry_repository.dart';
 import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/widget/blinker_controls.dart';
 import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/widget/throttle_controls.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-class MockTelemetryDataClient extends Mock implements TelemetryDataClient {}
+import 'telemetry_repository_impl_test.mocks.dart';
 
+
+@GenerateMocks([TelemetryDataClient])
 void main() {
   late MockTelemetryDataClient mockTelemetryDataClient;
   late TelemetryRepository telemetryRepository;
@@ -20,30 +23,30 @@ void main() {
     telemetryRepository = TelemetryRepositoryImpl(mockTelemetryDataClient);
   });
 
-  // group('listen for telemetry data updates', () {
-  //   const TelemetryData telemetry = TelemetryData(
-  //     dpfWarning: false,
-  //     batteryLevel: 55.4,
-  //     speed: 120,
-  //     rpm: 2434,
-  //     blinker: null,
-  //   );
-  //   final fakeWebsocketStream = StreamController<TelemetryData>();
+/*   group('listen for telemetry data updates', () {
+    const TelemetryData telemetry = TelemetryData(
+      dpfWarning: false,
+      batteryLevel: 55.4,
+      speed: 120,
+      rpm: 2434,
+      blinker: null,
+    );
+    final fakeWebsocketStream = StreamController<TelemetryData>();
 
-  //   setUp(() => fakeWebsocketStream.add(telemetry));
+    setUp(() => fakeWebsocketStream.add(telemetry));
 
-  //   test(
-  //     'should return stream of telemetry data on success',
-  //     () {
-  //       // arrange
-  //       when(mockTelemetryDataClient.listen()).thenAnswer((_) => fakeWebsocketStream.stream);
-  //       // act
-  //       final result = telemetryRepository.listen();
-  //       // assert
-  //       expectLater(result, emitsInOrder([telemetry]));
-  //     },
-  //   );
-  // });
+    test(
+      'should return stream of telemetry data on success',
+      () async {
+        // arrange
+        when(mockTelemetryDataClient.listen()).thenAnswer((_) => Stream.fromIterable([telemetry]));
+        // actq
+        final result = telemetryRepository.listen();
+        // assert
+        expectLater(result, emitsInOrder([telemetry]));
+      },
+    );
+  }); */
 
   group('blinker command', () {
     const TelemetryData telemetry = TelemetryData(
