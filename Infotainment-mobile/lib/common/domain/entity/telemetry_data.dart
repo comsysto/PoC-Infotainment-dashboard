@@ -48,4 +48,23 @@ class TelemetryData {
   @override
   String toString() =>
       'DPF: $dpfWarning, Battery: $batteryLevel, Speed: $speed, RPM: $rpm, Blinker: $blinker';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other.runtimeType != runtimeType) {
+      return false;
+    }
+    return other is TelemetryData &&
+        other.dpfWarning == dpfWarning &&
+        other.batteryLevel == batteryLevel &&
+        other.speed == speed &&
+        other.rpm == rpm &&
+        other.blinker == blinker;
+  }
+
+  @override
+  int get hashCode => Object.hash(dpfWarning, batteryLevel, speed, rpm, blinker);
 }

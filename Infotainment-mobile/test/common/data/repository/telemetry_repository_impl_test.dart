@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:infotainment_mobile_app/common/data/datasource/api/telemetry_data_client.dart';
 import 'package:infotainment_mobile_app/common/data/repository/telemetry_repository_impl.dart';
@@ -12,7 +13,6 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'telemetry_repository_impl_test.mocks.dart';
 
-
 @GenerateMocks([TelemetryDataClient])
 void main() {
   late MockTelemetryDataClient mockTelemetryDataClient;
@@ -23,30 +23,28 @@ void main() {
     telemetryRepository = TelemetryRepositoryImpl(mockTelemetryDataClient);
   });
 
-/*   group('listen for telemetry data updates', () {
+  group('listen for telemetry data updates', () {
+    const json = '{"telemetry": {"dpfWarning": true, "battery": 85.145778, "rpm": 353.102911, "velocity": 18.488425}, "controls": {"blinker": "off"}}';
     const TelemetryData telemetry = TelemetryData(
-      dpfWarning: false,
-      batteryLevel: 55.4,
-      speed: 120,
-      rpm: 2434,
-      blinker: null,
+      dpfWarning: true,
+      batteryLevel: 85.145778,
+      rpm: 353,
+      speed: 18,
+      blinker: BlinkerEnum.off,
     );
-    final fakeWebsocketStream = StreamController<TelemetryData>();
-
-    setUp(() => fakeWebsocketStream.add(telemetry));
 
     test(
       'should return stream of telemetry data on success',
       () async {
         // arrange
-        when(mockTelemetryDataClient.listen()).thenAnswer((_) => Stream.fromIterable([telemetry]));
-        // actq
+        when(mockTelemetryDataClient.listen()).thenAnswer((_) => Stream.fromIterable([json]));
+        // act
         final result = telemetryRepository.listen();
         // assert
-        expectLater(result, emitsInOrder([telemetry]));
+        expect(result, emitsInOrder([telemetry]));
       },
     );
-  }); */
+  });
 
   group('blinker command', () {
     const TelemetryData telemetry = TelemetryData(
