@@ -11,43 +11,72 @@ class Blinkers extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final blinkerState = ref.watch(telemetryProvider).asData?.value.blinker ?? Blinker.off;
+    final blinkerState = ref.watch(telemetryProvider).asData?.value.blinker;
 
-    final isLeftOn = useState(false);
-    final isRightOn = useState(false);
-    final isHazardOn = useState(false);
+    final hazardVisibility = useState(false);
+
+    final blinkerVisibility = useState({
+      Blinker.left: false,
+      Blinker.right: false,
+    });
+
+    final turnOff = useCallback(
+      () {
+        hazardVisibility.value = false;
+        blinkerVisibility.value = {
+          Blinker.left: false,
+          Blinker.right: false,
+        };
+      },
+      [hazardVisibility, blinkerVisibility, blinkerState],
+    );
+
+    final turnOnHazard = useCallback(
+      () {
+        hazardVisibility.value = !hazardVisibility.value;
+        blinkerVisibility.value = {
+          Blinker.left: hazardVisibility.value,
+          Blinker.right: hazardVisibility.value,
+        };
+      },
+      [hazardVisibility, blinkerVisibility, blinkerState],
+    );
+
+    final turnOnSingleBlinker = useCallback(
+      () {
+        blinkerVisibility.value = {
+          Blinker.left:
+              blinkerState == Blinker.left ? !blinkerVisibility.value[Blinker.left]! : false,
+          Blinker.right:
+              blinkerState == Blinker.right ? !blinkerVisibility.value[Blinker.right]! : false,
+        };
+      },
+      [hazardVisibility, blinkerVisibility, blinkerState],
+    );
 
     useEffect(() {
       final timer = Timer.periodic(
-        const Duration(milliseconds: 350),
+        const Duration(milliseconds: 500),
         (_) {
-          if (blinkerState == Blinker.left) {
-            isLeftOn.value = !isLeftOn.value;
-          } else if (blinkerState == Blinker.right) {
-            isRightOn.value = !isRightOn.value;
-          } else if (blinkerState == Blinker.hazard) {
-            isLeftOn.value = false;
-            isRightOn.value = false;
-            isHazardOn.value = !isHazardOn.value;
-          } else if (blinkerState == Blinker.off) {
-            isLeftOn.value = false;
-            isRightOn.value = false;
-            isHazardOn.value = false;
+          if (blinkerState == Blinker.off || blinkerState == null) {
+            turnOff();
+          }
+          if (blinkerState == Blinker.hazard) {
+            turnOnHazard();
           } else {
-            return;
+            turnOnSingleBlinker();
           }
         },
       );
-      return () {
-        timer.cancel();
-      };
-    }, [blinkerState, isLeftOn, isRightOn, isHazardOn]);
+      return () => timer.cancel();
+    }, [blinkerState, turnOnHazard, turnOnSingleBlinker, turnOff]);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         AnimatedOpacity(
-          opacity: isLeftOn.value || isHazardOn.value ? 1.0 : 0.0,
+          opacity: _getBlinkerOpacity(
+              indicator: Blinker.left, blinkerVisibility: blinkerVisibility.value),
           duration: const Duration(milliseconds: 100),
           child: Image.asset(
             'assets/icons/left-blinker.png',
@@ -55,7 +84,8 @@ class Blinkers extends HookConsumerWidget {
           ),
         ),
         AnimatedOpacity(
-          opacity: isRightOn.value || isHazardOn.value ? 1.0 : 0.0,
+          opacity: _getBlinkerOpacity(
+              indicator: Blinker.right, blinkerVisibility: blinkerVisibility.value),
           duration: const Duration(milliseconds: 100),
           child: Image.asset(
             'assets/icons/right-blinker.png',
@@ -64,5 +94,15 @@ class Blinkers extends HookConsumerWidget {
         ),
       ],
     );
+  }
+
+  double _getBlinkerOpacity({
+    required Blinker indicator,
+    required Map<Blinker, bool> blinkerVisibility,
+  }) {
+    if (indicator == Blinker.hazard) {
+      return blinkerVisibility[Blinker.left]! && blinkerVisibility[Blinker.right]! ? 1.0 : 0.0;
+    }
+    return blinkerVisibility[indicator]! ? 1.0 : 0.0;
   }
 }
