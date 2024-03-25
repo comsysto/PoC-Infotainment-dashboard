@@ -60,7 +60,7 @@ class BlinkerControls extends HookConsumerWidget {
 
     useEffect(() {
       final timer = Timer.periodic(
-        const Duration(milliseconds: 300),
+        const Duration(milliseconds: 500),
         (_) {
           if (blinkerState == null) {
             turnOff();
