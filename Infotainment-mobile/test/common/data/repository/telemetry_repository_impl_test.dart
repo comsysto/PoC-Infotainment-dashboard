@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'dart:convert';
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:infotainment_mobile_app/common/data/datasource/api/telemetry_data_client.dart';
 import 'package:infotainment_mobile_app/common/data/repository/telemetry_repository_impl.dart';
 import 'package:infotainment_mobile_app/common/domain/entity/telemetry_data.dart';
@@ -9,7 +9,6 @@ import 'package:infotainment_mobile_app/features/basic_car_controls/presentation
 import 'package:infotainment_mobile_app/features/basic_car_controls/presentation/widget/throttle_controls.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import 'telemetry_repository_impl_test.mocks.dart';
 
