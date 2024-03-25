@@ -28,9 +28,9 @@ class CurrentTripInfo extends HookConsumerWidget {
     }, [telemetryData, tripDuration]);
 
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 60, vertical: 40),
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       width: double.maxFinite,
-      margin: const EdgeInsets.all(40),
       decoration: BoxDecoration(
         color: context.colors.cardBackground,
         borderRadius: BorderRadius.circular(20),

@@ -30,9 +30,10 @@ class SpeedIndicator extends ConsumerWidget {
           ),
           Positioned(
             bottom: 160,
+            left: 87,
             child: Image.asset(
               'assets/images/speed_ornament.png',
-              width: 628,
+              width: 450,
             ),
           ),
         ],
