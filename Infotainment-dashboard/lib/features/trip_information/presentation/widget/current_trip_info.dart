@@ -43,7 +43,7 @@ class CurrentTripInfo extends HookConsumerWidget {
           _TripComputerRow(
             DateFormat(DateFormat.HOUR24_MINUTE_SECOND).format(tripDuration.value),
             'Duration',
-          ),
+          ),tre
           const _TripComputerRow('378km', 'Distance', isLast: true),
         ],
       ),

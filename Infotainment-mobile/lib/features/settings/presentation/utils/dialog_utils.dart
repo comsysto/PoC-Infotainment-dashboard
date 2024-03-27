@@ -13,7 +13,7 @@ void showConfigDialog(
     context: context,
     builder: (cotnext) {
       return AlertDialog(
-        title: const Text('Enter IP address'),
+        title: Text('Enter IP address'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -37,7 +37,9 @@ void showConfigDialog(
               if (addressController.text.isNotEmpty && portController.text.isNotEmpty) {
                 ipAddress = addressController.text;
                 portNum = portController.text;
-                ref.read(networkConfigProvider.notifier).setConfig(ipAddress: ipAddress, port: portNum);
+                ref
+                    .read(networkConfigProvider.notifier)
+                    .setConfig(ipAddress: ipAddress, port: portNum);
               } else if (addressController.text.isNotEmpty) {
                 ipAddress = addressController.text;
                 ref.read(networkConfigProvider.notifier).setConfig(ipAddress: ipAddress);

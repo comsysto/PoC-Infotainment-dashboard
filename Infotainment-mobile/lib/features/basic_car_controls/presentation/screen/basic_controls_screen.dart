@@ -19,13 +19,42 @@ class BasicControlsScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final telemetryData = ref.watch(telemetryProvider);
+    final batteryLevel = telemetryData.valueOrNull?.batteryLevel ?? 0;
+
     final batteryIcon = useMemoized(
       () {
-        return const Icon(
-          Icons.battery_2_bar,
-          size: 40,
-          color: Colors.red,
-        );
+        final batLevel = telemetryData.valueOrNull?.batteryLevel;
+        if (batLevel == null) {
+          return const Icon(
+            Icons.battery_0_bar,
+            size: 40,
+            color: Colors.red,
+          );
+        } else if (batLevel < 20) {
+          return const Icon(
+            Icons.battery_2_bar,
+            size: 40,
+            color: Colors.red,
+          );
+        } else if (batLevel < 50) {
+          return const Icon(
+            Icons.battery_3_bar,
+            size: 40,
+            color: Colors.orange,
+          );
+        } else if (batLevel == 100) {
+          return const Icon(
+            Icons.battery_full,
+            size: 40,
+            color: Colors.green,
+          );
+        } else {
+          return const Icon(
+            Icons.battery_5_bar,
+            size: 40,
+            color: Colors.green,
+          );
+        }
       },
       [telemetryData],
     );
@@ -99,7 +128,7 @@ class BasicControlsScreen extends HookConsumerWidget {
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              '23%',
+                              '${batteryLevel.round().toString()}%',
                               style: context.textBody,
                             ),
                           ],
