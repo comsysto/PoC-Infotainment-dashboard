@@ -19,7 +19,7 @@ class TelemetryDataClient {
     return controller.stream;
   }
 
-  void _connectWithRetry() {
+  void _connectWithRetry(int retryCount = 20) {
     try {
       final uri = Uri.parse('ws://$address');
       channel = WebSocketChannel.connect(uri);
