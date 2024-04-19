@@ -15,11 +15,11 @@ class TelemetryDataClient {
   Stream<dynamic> listen() {
     logger.debug('About to listen on websocket address: $address');
     controller = StreamController<dynamic>();
-    _connectWithRetry(20);
+    _connectWithRetry();
     return controller.stream;
   }
 
-  void _connectWithRetry(int retryCount) {
+  void _connectWithRetry() {
     try {
       final uri = Uri.parse('ws://$address');
       channel = WebSocketChannel.connect(uri);
@@ -34,7 +34,8 @@ class TelemetryDataClient {
           logger.error('onError: $error');
           if (retryCount != 0) {
             logger.error('onError: About to retry to connect, remaining attempts: $retryCount');
-            Future.delayed(const Duration(seconds: 1), () => _connectWithRetry(retryCount - 1));
+//             Future.delayed(const Duration(seconds: 1), () => _connectWithRetry(retryCount - 1));
+            Future.delayed(const Duration(seconds: 1), () => _connectWithRetry());
           } else {
             logger.error('onError: Connection to websocket $address closed.');
             disconnect();
@@ -52,7 +53,8 @@ class TelemetryDataClient {
       logger.error('Error while connecting to the websocket.');
       if (retryCount != 0) {
         logger.error('Error: About to retry to connect, remaining attempts: $retryCount');
-        Future.delayed(const Duration(seconds: 1), () => _connectWithRetry(retryCount - 1));
+//         Future.delayed(const Duration(seconds: 1), () => _connectWithRetry(retryCount - 1));
+        Future.delayed(const Duration(seconds: 1), () => _connectWithRetry());
       } else {
         logger.error('Error: Connection to websocket $address closed.');
         disconnect();
